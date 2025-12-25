@@ -7,17 +7,30 @@
     <title>Юрты из Кызыл-Туу | Мастера Ислам и Бакай</title>
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #fdfbf7; --wa: #25d366; }
-        body { font-family: serif; background: var(--white); margin: 0; color: var(--dark); text-align: center; }
-        header { background: var(--dark); color: white; padding: 40px 20px; }
-        .lang-switch { background: #333; padding: 10px; position: sticky; top: 0; z-index: 100; }
-        .lang-switch button { background: none; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; margin: 0 5px; padding: 5px 10px; border-radius: 5px; }
+        body { font-family: 'serif'; background: var(--white); margin: 0; color: var(--dark); text-align: center; line-height: 1.6; }
+        header { background: var(--dark); color: white; padding: 50px 20px; border-bottom: 4px solid var(--gold); }
+        .lang-switch { background: #333; padding: 10px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; gap: 8px; }
+        .lang-switch button { background: none; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; padding: 6px 12px; border-radius: 4px; font-size: 14px; transition: 0.3s; }
+        .lang-switch button:hover { background: var(--gold); color: white; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
-        .main-img { width: 100%; border: 2px solid var(--gold); border-radius: 10px; margin-bottom: 20px; }
-        .detail-box { border-left: 5px solid var(--gold); margin: 15px 0; padding: 15px; text-align: left; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        
+        /* Галерея */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border: 2px solid var(--gold); border-radius: 8px; }
+
+        .detail-box { border-left: 5px solid var(--gold); margin: 15px 0; padding: 15px; text-align: left; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        
+        /* Отзывы */
+        .reviews { margin-top: 50px; padding: 30px 15px; background: #f4f1ea; border-radius: 15px; }
+        .review-card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 3px solid var(--gold); }
+        .review-card p { font-style: italic; margin-bottom: 10px; }
+        .author { font-weight: bold; color: var(--gold); font-size: 0.9em; }
+
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 8px; overflow: hidden; }
         .price-table th, .price-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
         .price-table th { background-color: var(--dark); color: white; }
-        .btn-wa { background: var(--wa); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin: 20px 0; }
+        
+        .btn-wa { background: var(--wa); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         [lang="kz"], [lang="en"] { display: none; }
     </style>
 </head>
@@ -35,36 +48,64 @@
 </header>
 
 <div class="container">
-    <img src="https://images.unsplash.com/photo-1528660493478-ad83a0ee2188?w=800" class="main-img" alt="Кыргызская юрта">
+    <h2 id="gallery-title">Наши работы</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1528660493478-ad83a0ee2188?w=600" alt="Юрта 1">
+        <img src="https://images.unsplash.com/photo-1563293753-436f734419b4?w=600" alt="Юрта 2">
+    </div>
 
     <div id="content-ru" lang="ru">
-        <h2>Детали юрты:</h2>
-        <div class="detail-box"><b>ТЮНДЮК:</b> Центр купола, символ единства. Делаем из березы.</div>
-        <div class="detail-box"><b>КЕРЕГЕ:</b> Раздвижные стены из ивы, связанные вручную.</div>
-        <div class="detail-box"><b>УУК:</b> Купольные жерди, создающие форму неба.</div>
-        <div class="detail-box"><b>ВОЙЛОК:</b> 100% натуральная шерсть. Тепло зимой, прохладно летом.</div>
+        <h2>О наших юртах:</h2>
+        <div class="detail-box"><b>Материал:</b> Ива высшего сорта и 100% натуральный войлок.</div>
+        <div class="detail-box"><b>Сроки:</b> Изготовление от 2-х недель.</div>
         
-        <h2>Цены на юрты:</h2>
+        <h2>Цены:</h2>
         <table class="price-table">
-            <tr><th>Размер</th><th>Описание</th><th>Цена</th></tr>
-            <tr><td>4 каната</td><td>Для 4-6 человек</td><td>300,000 сом</td></tr>
-            <tr><td>6 канатов</td><td>Классическая семейная</td><td>400,000 сом</td></tr>
-            <tr><td>8 канатов</td><td>Большая гостевая</td><td>500,000 сом</td></tr>
+            <tr><th>Размер</th><th>Вместимость</th><th>Цена</th></tr>
+            <tr><td>4 каната</td><td>4-6 чел.</td><td>300,000 сом</td></tr>
+            <tr><td>6 канатов</td><td>8-10 чел.</td><td>400,000 сом</td></tr>
+            <tr><td>8 канатов</td><td>Большая</td><td>550,000 сом</td></tr>
         </table>
+
+        <div class="reviews">
+            <h2>Отзывы клиентов:</h2>
+            <div class="review-card">
+                <p>"Заказали юрту для гостевого дома. Качество выше всяких похвал, очень теплая и красивая!"</p>
+                <span class="author">— Азамат, г. Бишкек</span>
+            </div>
+            <div class="review-card">
+                <p>"Лучшие мастера в Кызыл-Туу. Работа выполнена точно в срок. Спасибо Исламу и Бакаю!"</p>
+                <span class="author">— Нурлан, г. Алматы</span>
+            </div>
+        </div>
     </div>
 
     <div id="content-kz" lang="kz">
-        <h2>Киіз үйдің бөлшектері:</h2>
-        <p>Бағасы: 300,000 сомнан бастап.</p>
+        <h2>Біздің киіз үйлер туралы:</h2>
+        <p>Ислам мен Бакай шеберлерінің қолынан шыққан сапалы бұйымдар.</p>
+        <div class="reviews">
+            <h2>Клиенттердің пікірлері:</h2>
+            <div class="review-card">
+                <p>"Өте керемет киіз үй! Шеберлерге рахмет, жұмысы өте тиянақты."</p>
+                <span class="author">— Марат, Астана қ.</span>
+            </div>
+        </div>
     </div>
 
     <div id="content-en" lang="en">
-        <h2>Yurt Details:</h2>
-        <p>Price: from $3,500.</p>
+        <h2>About our Yurts:</h2>
+        <p>Premium quality handmade yurts from Kyzyl-Tuu masters.</p>
+        <div class="reviews">
+            <h2>Customer Reviews:</h2>
+            <div class="review-card">
+                <p>"Amazing craftsmanship. The yurt is beautiful and authentic. Highly recommend these masters!"</p>
+                <span class="author">— John, Tourist from USA</span>
+            </div>
+        </div>
     </div>
 
     <a href="https://wa.me/996501984201" class="btn-wa">Заказать через WhatsApp</a>
-    <p><b>Наш адрес:</b> с. Кызыл-Туу, ул. Турган 62</p>
+    <p><b>Адрес:</b> с. Кызыл-Туу, ул. Турган 62, Кыргызстан</p>
 </div>
 
 <script>
@@ -73,12 +114,13 @@
         document.querySelectorAll('[lang="' + lang + '"]').forEach(el => el.style.display = 'block');
         
         const titles = {
-            ru: { h1: "ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", p: "Мастера Ислам и Бакай | Традиции и Качество" },
-            kz: { h1: "ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", p: "Ислам мен Бакай шеберлері" },
-            en: { h1: "YURTS FROM KYZYL-TUU", p: "Masters Islam & Bakai | Tradition & Quality" }
+            ru: { h1: "ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", p: "Мастера Ислам и Бакай | Традиции и Качество", g: "Наши работы" },
+            kz: { h1: "ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", p: "Ислам мен Бакай шеберлері", g: "Біздің жұмыстар" },
+            en: { h1: "YURTS FROM KYZYL-TUU", p: "Masters Islam & Bakai | Quality & Tradition", g: "Our Works" }
         };
         document.getElementById('title').innerText = titles[lang].h1;
         document.getElementById('subtitle').innerText = titles[lang].p;
+        document.getElementById('gallery-title').innerText = titles[lang].g;
     }
 </script>
 
