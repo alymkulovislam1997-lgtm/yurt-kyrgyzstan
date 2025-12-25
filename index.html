@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юрты из Кызыл-Туу | Мастера Ислам и Алымкул</title>
+    <title>Юрты из Кызыл-Туу | Ислам и Бакай</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --light: #f9f9f9; }
-        body { font-family: 'Lora', serif; background: var(--light); color: var(--dark); margin: 0; line-height: 1.6; }
+        body { font-family: 'Lora', serif; background: var(--light); color: var(--dark); margin: 0; padding: 0; line-height: 1.6; }
         header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); position: relative; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .lang-switch { position: absolute; top: 10px; right: 10px; display: flex; gap: 5px; }
         .lang-switch button { background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; cursor: pointer; padding: 5px 10px; border-radius: 4px; font-size: 12px; transition: 0.3s; }
         .lang-switch button.active { background: var(--gold); color: var(--dark); font-weight: bold; }
         .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: white; }
-        .gallery-item img, .gallery-item video { width: 100%; display: block; transition: transform 0.5s; }
-        .info-card { background: white; padding: 30px; border-radius: 8px; margin-top: 40px; border-left: 8px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .contact-btn { display: inline-block; background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        footer { text-align: center; padding: 40px; font-size: 0.9em; color: #666; border-top: 1px solid #ddd; margin-top: 50px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery-item img, .gallery-item video { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .info-card { background: white; padding: 25px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .contacts { margin-top: 20px; }
+        .contact-link { display: block; margin-bottom: 10px; text-decoration: none; color: var(--dark); font-weight: 600; }
+        .btn-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .btn { padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; font-size: 14px; transition: 0.3s; }
+        .whatsapp { background: #25D366; }
+        .instagram { background: #E1306C; }
+        .telegram { background: #0088cc; }
+        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
@@ -44,12 +48,24 @@
 
     <div class="info-card">
         <h2 id="about-title">О наших юртах</h2>
-        <p id="about-text">Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции.</p>
-        <h3 id="order-title">Заказать юрту:</h3>
-        <p id="master-names">Мастера: <strong>Ислам и Алымкул</strong></p>
-        <a href="https://wa.me/996707323214" class="contact-btn" id="whatsapp-btn">Написать в WhatsApp</a>
+        <p id="about-text">Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции. Используем качественное дерево (ива) и натуральный войлок.</p>
+        
+        <h3 id="order-title">Контакты для заказа:</h3>
+        <div class="contacts">
+            <p><strong>Ислам:</strong> +996 501 984 201</p>
+            <p><strong>Бакай:</strong> +996 501 047 554</p>
+        </div>
+
+        <div class="btn-box">
+            <a href="https://wa.me/996501984201" class="btn whatsapp" id="wa-islam">WhatsApp Ислам</a>
+            <a href="https://wa.me/996501047554" class="btn whatsapp" id="wa-bakai">WhatsApp Бакай</a>
+            <a href="http://instagram.com/islamalymkulovich" class="btn instagram">Instagram</a>
+            <a href="https://t.me/yurtKyrgyzstan" class="btn telegram">Telegram</a>
+        </div>
     </div>
 </div>
+
+<footer><p>© 2025 Юрты Кыргызстана</p></footer>
 
 <script>
     const translations = {
@@ -57,28 +73,28 @@
             mainTitle: "Кыргызские Юрты Ручной Работы",
             subTitle: "Наследие предков от мастеров из села Кызыл-Туу",
             aboutTitle: "О наших юртах",
-            aboutText: "Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции. Используем только качественные материалы: натуральное дерево (ива) и чистый войлок.",
-            orderTitle: "Заказать юрту:",
-            masterNames: "Мастера: <strong>Ислам и Алымкул</strong>",
-            whatsappBtn: "Написать в WhatsApp"
+            aboutText: "Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции. Используем качественное дерево (ива) и натуральный войлок.",
+            orderTitle: "Контакты для заказа:",
+            waIslam: "WhatsApp Ислам",
+            waBakai: "WhatsApp Бакай"
         },
         kz: {
             mainTitle: "Қолдан жасалған Қырғыз Киіз Үйлері",
             subTitle: "Қызыл-Туу ауылының шеберлерінен ата-баба мұрасы",
             aboutTitle: "Біздің киіз үйлер туралы",
             aboutText: "Біз атақты Қызыл-Туу ауылының шеберлеріміз. Барлық көне дәстүрлерді сақтай отырып, кез келген күрделіліктегі киіз үйлерді жасаймыз. Табиғи ағаш пен таза киізді пайдаланамыз.",
-            orderTitle: "Тапсырыс беру:",
-            masterNames: "Шеберлер: <strong>Ислам және Алымқұл</strong>",
-            whatsappBtn: "WhatsApp-қа жазу"
+            orderTitle: "Тапсырыс беру үшін:",
+            waIslam: "WhatsApp Ислам",
+            waBakai: "WhatsApp Бакай"
         },
         en: {
             mainTitle: "Handmade Kyrgyz Yurts",
             subTitle: "Ancestral heritage from the masters of Kyzyl-Tuu village",
             aboutTitle: "About our yurts",
             aboutText: "We are masters from the famous Kyzyl-Tuu village. We manufacture yurts of any complexity, observing all ancient traditions using natural wood and pure felt.",
-            orderTitle: "Order a yurt:",
-            masterNames: "Masters: <strong>Islam and Alymkul</strong>",
-            whatsappBtn: "Message on WhatsApp"
+            orderTitle: "Contacts for order:",
+            waIslam: "WhatsApp Islam",
+            waBakai: "WhatsApp Bakai"
         }
     };
 
@@ -88,8 +104,8 @@
         document.getElementById('about-title').innerText = translations[lang].aboutTitle;
         document.getElementById('about-text').innerText = translations[lang].aboutText;
         document.getElementById('order-title').innerText = translations[lang].orderTitle;
-        document.getElementById('master-names').innerHTML = translations[lang].masterNames;
-        document.getElementById('whatsapp-btn').innerText = translations[lang].whatsappBtn;
+        document.getElementById('wa-islam').innerText = translations[lang].waIslam;
+        document.getElementById('wa-bakai').innerText = translations[lang].waBakai;
         document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
         document.getElementById('btn-' + lang).classList.add('active');
     }
