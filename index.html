@@ -1,78 +1,84 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юрты из Кызыл-Туу</title>
+    <title>Юрты из Кызыл-Туу | Мастера Ислам и Бакай</title>
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #fdfbf7; --wa: #25d366; }
         body { font-family: serif; background: var(--white); margin: 0; color: var(--dark); text-align: center; }
         header { background: var(--dark); color: white; padding: 40px 20px; }
-        .lang-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 15px; cursor: pointer; border-radius: 5px; margin: 10px 5px; }
+        .lang-switch { background: #333; padding: 10px; position: sticky; top: 0; z-index: 100; }
+        .lang-switch button { background: none; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; margin: 0 5px; padding: 5px 10px; border-radius: 5px; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
-        .main-img { width: 100%; border: 3px solid var(--gold); border-radius: 10px; }
-        .detail-card { background: white; border: 1px solid #ddd; margin: 15px 0; padding: 20px; text-align: left; border-left: 5px solid var(--gold); }
-        .btn-wa { background: var(--wa); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin-top: 20px; }
+        .main-img { width: 100%; border: 2px solid var(--gold); border-radius: 10px; margin-bottom: 20px; }
+        .detail-box { border-left: 5px solid var(--gold); margin: 15px 0; padding: 15px; text-align: left; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        .price-table th, .price-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        .price-table th { background-color: var(--dark); color: white; }
+        .btn-wa { background: var(--wa); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin: 20px 0; }
         [lang="kz"], [lang="en"] { display: none; }
     </style>
 </head>
 <body>
 
-<div class="nav-lang">
-    <button class="lang-btn" onclick="setLang('ru')">Русский</button>
-    <button class="lang-btn" onclick="setLang('kz')">Қазақша</button>
-    <button class="lang-btn" onclick="setLang('en')">English</button>
+<div class="lang-switch">
+    <button onclick="changeLang('ru')">Русский</button>
+    <button onclick="changeLang('kz')">Қазақша</button>
+    <button onclick="changeLang('en')">English</button>
 </div>
 
 <header>
-    <h1 id="h-title">ЮРТЫ ИЗ КЫЗЫЛ-ТУУ</h1>
-    <p id="h-sub">Мастера Ислам и Бакай</p>
+    <h1 id="title">ЮРТЫ ИЗ КЫЗЫЛ-ТУУ</h1>
+    <p id="subtitle">Мастера Ислам и Бакай | Традиции и Качество</p>
 </header>
 
 <div class="container">
-    <img src="https://images.unsplash.com/photo-1528660493478-ad83a0ee2188?w=800" class="main-img" alt="Yurt">
+    <img src="https://images.unsplash.com/photo-1528660493478-ad83a0ee2188?w=800" class="main-img" alt="Кыргызская юрта">
 
-    <div id="ru" lang="ru">
-        <h2>Особенности нашей работы:</h2>
-        <div class="detail-card"><b>ТЮНДЮК:</b> Центр купола, символ единства. Делаем из березы.</div>
-        <div class="detail-card"><b>КЕРЕГЕ:</b> Раздвижные стены. Используем отборную иву.</div>
-        <div class="detail-card"><b>УУК:</b> Купольные жерди, создающие форму неба.</div>
-        <div class="detail-card"><b>ВОЙЛОК:</b> 100% натуральная шерсть. Тепло зимой, прохладно летом.</div>
-        <h3>Цена: от 300,000 сом</h3>
+    <div id="content-ru" lang="ru">
+        <h2>Детали юрты:</h2>
+        <div class="detail-box"><b>ТЮНДЮК:</b> Центр купола, символ единства. Делаем из березы.</div>
+        <div class="detail-box"><b>КЕРЕГЕ:</b> Раздвижные стены из ивы, связанные вручную.</div>
+        <div class="detail-box"><b>УУК:</b> Купольные жерди, создающие форму неба.</div>
+        <div class="detail-box"><b>ВОЙЛОК:</b> 100% натуральная шерсть. Тепло зимой, прохладно летом.</div>
+        
+        <h2>Цены на юрты:</h2>
+        <table class="price-table">
+            <tr><th>Размер</th><th>Описание</th><th>Цена</th></tr>
+            <tr><td>4 каната</td><td>Для 4-6 человек</td><td>300,000 сом</td></tr>
+            <tr><td>6 канатов</td><td>Классическая семейная</td><td>400,000 сом</td></tr>
+            <tr><td>8 канатов</td><td>Большая гостевая</td><td>500,000 сом</td></tr>
+        </table>
     </div>
 
-    <div id="kz" lang="kz">
-        <h2>Киіз үйдің ерекшеліктері:</h2>
-        <div class="detail-card"><b>ШАҢЫРАҚ:</b> Күмбездің ортасы, бірлік белгісі. Березеден жасалады.</div>
-        <div class="detail-card"><b>КЕРЕГЕ:</b> Талдан жасалған жиналмалы қабырғалар.</div>
-        <div class="detail-box"><b>УЫҚ:</b> Шаңырақ пен керегені жалғайтын сырықтар.</div>
-        <div class="detail-card"><b>КИІЗ:</b> 100% табиғи жүн. Қыста жылы, жазда салқын.</div>
-        <h3>Бағасы: 300,000 сомнан бастап</h3>
+    <div id="content-kz" lang="kz">
+        <h2>Киіз үйдің бөлшектері:</h2>
+        <p>Бағасы: 300,000 сомнан бастап.</p>
     </div>
 
-    <div id="en" lang="en">
-        <h2>Yurt Features:</h2>
-        <div class="detail-card"><b>TUNDUK:</b> The crown of the dome, a symbol of unity.</div>
-        <div class="detail-card"><b>KEREGE:</b> Lattice walls made of premium willow.</div>
-        <div class="detail-card"><b>UUK:</b> Roof poles connecting the crown to the walls.</div>
-        <div class="detail-card"><b>FELT:</b> 100% natural wool for all-weather comfort.</div>
-        <h3>Price: from $3,500</h3>
+    <div id="content-en" lang="en">
+        <h2>Yurt Details:</h2>
+        <p>Price: from $3,500.</p>
     </div>
 
-    <a href="https://wa.me/996501984201" class="btn-wa">WhatsApp</a>
+    <a href="https://wa.me/996501984201" class="btn-wa">Заказать через WhatsApp</a>
+    <p><b>Наш адрес:</b> с. Кызыл-Туу, ул. Турган 62</p>
 </div>
 
 <script>
-    function setLang(l) {
-        document.querySelectorAll('[lang]').forEach(e => e.style.display = 'none');
-        document.getElementById(l).style.display = 'block';
-        const t = {
-            ru: ["ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", "Мастера Ислам и Бакай"],
-            kz: ["ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", "Ислам мен Бакай шеберлері"],
-            en: ["YURTS FROM KYZYL-TUU", "Masters Islam & Bakai"]
+    function changeLang(lang) {
+        document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('[lang="' + lang + '"]').forEach(el => el.style.display = 'block');
+        
+        const titles = {
+            ru: { h1: "ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", p: "Мастера Ислам и Бакай | Традиции и Качество" },
+            kz: { h1: "ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", p: "Ислам мен Бакай шеберлері" },
+            en: { h1: "YURTS FROM KYZYL-TUU", p: "Masters Islam & Bakai | Tradition & Quality" }
         };
-        document.getElementById('h-title').innerText = t[l][0];
-        document.getElementById('h-sub').innerText = t[l][1];
+        document.getElementById('title').innerText = titles[lang].h1;
+        document.getElementById('subtitle').innerText = titles[lang].p;
     }
 </script>
 
