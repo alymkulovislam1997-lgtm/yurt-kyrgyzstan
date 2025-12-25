@@ -10,20 +10,27 @@
         body { font-family: 'Lora', serif; background: var(--light); color: var(--dark); margin: 0; padding: 0; line-height: 1.6; }
         header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); position: relative; }
         .lang-switch { position: absolute; top: 10px; right: 10px; display: flex; gap: 5px; }
-        .lang-switch button { background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; cursor: pointer; padding: 5px 10px; border-radius: 4px; font-size: 12px; transition: 0.3s; }
+        .lang-switch button { background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; cursor: pointer; padding: 5px 10px; border-radius: 4px; font-size: 12px; }
         .lang-switch button.active { background: var(--gold); color: var(--dark); font-weight: bold; }
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
         .gallery-item img, .gallery-item video { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .info-card { background: white; padding: 25px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .contacts { margin-top: 20px; }
-        .contact-link { display: block; margin-bottom: 10px; text-decoration: none; color: var(--dark); font-weight: 600; }
-        .btn-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .btn { padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; font-size: 14px; transition: 0.3s; }
+        
+        .price-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .price-table th, .price-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .price-table th { background: #f4f4f4; }
+
+        .note-box { background: #fdfaf0; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-top: 20px; }
+        .details-note { border-left: 4px solid var(--gold); }
+        .time-note { border-left: 4px solid #2c3e50; }
+
+        .btn-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; font-size: 14px; text-align: center; }
         .whatsapp { background: #25D366; }
         .instagram { background: #E1306C; }
         .telegram { background: #0088cc; }
-        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #666; }
+        h3 { color: var(--gold); margin-top: 25px; }
     </style>
 </head>
 <body>
@@ -35,7 +42,7 @@
         <button onclick="changeLang('en')" id="btn-en">EN</button>
     </div>
     <h1 id="main-title">Кыргызские Юрты Ручной Работы</h1>
-    <p id="sub-title">Наследие предков от мастеров из села Кызыл-Туу</p>
+    <p id="sub-title">Мастера из села Кызыл-Туу: Ислам и Бакай</p>
 </header>
 
 <div class="container">
@@ -47,14 +54,31 @@
     </div>
 
     <div class="info-card">
-        <h2 id="about-title">О наших юртах</h2>
-        <p id="about-text">Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции. Используем качественное дерево (ива) и натуральный войлок.</p>
-        
-        <h3 id="order-title">Контакты для заказа:</h3>
-        <div class="contacts">
-            <p><strong>Ислам:</strong> +996 501 984 201</p>
-            <p><strong>Бакай:</strong> +996 501 047 554</p>
+        <h2 id="price-title">Цены и виды юрт</h2>
+        <table class="price-table">
+            <thead>
+                <tr><th id="th-type">Тип юрты</th><th id="th-price">Примерная цена</th></tr>
+            </thead>
+            <tbody>
+                <tr><td id="t1">3-х канатная (малая)</td><td>от 120 000 сом</td></tr>
+                <tr><td id="t2">5-ти канатная (стандарт)</td><td>от 250 000 сом</td></tr>
+                <tr><td id="t3">6-ти канатная (праздничная)</td><td>от 350 000 сом</td></tr>
+                <tr><td id="t4">8-ми канатная (большая)</td><td>от 550 000 сом</td></tr>
+            </tbody>
+        </table>
+
+        <div class="note-box details-note">
+            <h3 id="h-parts" style="margin-top:0;">Заказ отдельных деталей</h3>
+            <p id="p-parts">Вы можете заказать у нас отдельные элементы юрты: Тундук, Кереге, Уук, дверные блоки или войлочное покрытие (жабуу). Изготовим по вашим размерам.</p>
         </div>
+
+        <div class="note-box time-note">
+            <h3 id="h-time" style="margin-top:0; color: #2c3e50;">Сроки изготовления</h3>
+            <p id="p-time">Срок изготовления юрты под ключ составляет от 15 до 40 дней в зависимости от сложности и размера. Мы гарантируем высокое качество каждой детали.</p>
+        </div>
+
+        <h3 id="order-title">Связаться с нами:</h3>
+        <p><strong>Ислам:</strong> +996 501 984 201 | <strong>Бакай:</strong> +996 501 047 554</p>
 
         <div class="btn-box">
             <a href="https://wa.me/996501984201" class="btn whatsapp" id="wa-islam">WhatsApp Ислам</a>
@@ -71,38 +95,59 @@
     const translations = {
         ru: {
             mainTitle: "Кыргызские Юрты Ручной Работы",
-            subTitle: "Наследие предков от мастеров из села Кызыл-Туу",
-            aboutTitle: "О наших юртах",
-            aboutText: "Мы — мастера из знаменитого села Кызыл-Туу. Изготавливаем юрты любой сложности, соблюдая все древние традиции. Используем качественное дерево (ива) и натуральный войлок.",
-            orderTitle: "Контакты для заказа:",
-            waIslam: "WhatsApp Ислам",
-            waBakai: "WhatsApp Бакай"
+            subTitle: "Мастера из села Кызыл-Туу: Ислам и Бакай",
+            priceTitle: "Цены и виды юрт",
+            thType: "Тип юрты", thPrice: "Примерная цена",
+            t1: "3-х канатная (малая)", t2: "5-ти канатная (стандарт)", t3: "6-ти канатная (праздничная)", t4: "8-ми канатная (большая)",
+            hParts: "Заказ отдельных деталей",
+            pParts: "Вы можете заказать у нас отдельные элементы юрты: Тундук, Кереге, Уук, дверные блоки или войлочное покрытие (жабуу). Изготовим по вашим размерам.",
+            hTime: "Сроки изготовления",
+            pTime: "Срок изготовления юрты под ключ составляет от 15 до 40 дней в зависимости от сложности и размера. Мы гарантируем высокое качество каждой детали.",
+            orderTitle: "Связаться с нами:",
+            waIslam: "WhatsApp Ислам", waBakai: "WhatsApp Бакай"
         },
         kz: {
             mainTitle: "Қолдан жасалған Қырғыз Киіз Үйлері",
-            subTitle: "Қызыл-Туу ауылының шеберлерінен ата-баба мұрасы",
-            aboutTitle: "Біздің киіз үйлер туралы",
-            aboutText: "Біз атақты Қызыл-Туу ауылының шеберлеріміз. Барлық көне дәстүрлерді сақтай отырып, кез келген күрделіліктегі киіз үйлерді жасаймыз. Табиғи ағаш пен таза киізді пайдаланамыз.",
-            orderTitle: "Тапсырыс беру үшін:",
-            waIslam: "WhatsApp Ислам",
-            waBakai: "WhatsApp Бакай"
+            subTitle: "Қызыл-Туу ауылының шеберлері: Ислам және Бақай",
+            priceTitle: "Киіз үйлердің түрлері мен бағалары",
+            thType: "Киіз үй түрі", thPrice: "Болжамды баға",
+            t1: "3 қанатты (кіші)", t2: "5 қанатты (стандарт)", t3: "6 қанатты (мерекелік)", t4: "8 қанатты (үлкен)",
+            hParts: "Бөлек бөлшектерге тапсырыс беру",
+            pParts: "Сіз бізден киіз үйдің жекелеген бөліктеріне тапсырыс бере аласыз: Түндік, Кереге, Уық, есік блоктары немесе киіз жабулары. Сіздің өлшемдеріңіз бойынша дайындаймыз.",
+            hTime: "Дайындау мерзімі",
+            pTime: "Киіз үйді толық дайындау мерзімі күрделілігі мен көлеміне байланысты 15-тен 40 күнге дейін. Біз әрбір бөлшектің жоғары сапасына кепілдік береміз.",
+            orderTitle: "Бізбен байланыс:",
+            waIslam: "WhatsApp Ислам", waBakai: "WhatsApp Бақай"
         },
         en: {
             mainTitle: "Handmade Kyrgyz Yurts",
-            subTitle: "Ancestral heritage from the masters of Kyzyl-Tuu village",
-            aboutTitle: "About our yurts",
-            aboutText: "We are masters from the famous Kyzyl-Tuu village. We manufacture yurts of any complexity, observing all ancient traditions using natural wood and pure felt.",
-            orderTitle: "Contacts for order:",
-            waIslam: "WhatsApp Islam",
-            waBakai: "WhatsApp Bakai"
+            subTitle: "Masters from Kyzyl-Tuu: Islam and Bakai",
+            priceTitle: "Yurt Types and Prices",
+            thType: "Yurt Type", thPrice: "Estimated Price",
+            t1: "3-wings (small)", t2: "5-wings (standard)", t3: "6-wings (festive)", t4: "8-wings (large)",
+            hParts: "Ordering Individual Parts",
+            pParts: "You can order individual yurt elements from us: Tyundyuk, Kerege, Uuk, door units, or felt coverings. We will manufacture according to your specific measurements.",
+            hTime: "Manufacturing Time",
+            pTime: "The lead time for a full yurt is 15 to 40 days, depending on size and complexity. We guarantee premium quality for every element.",
+            orderTitle: "Contact us:",
+            waIslam: "WhatsApp Islam", waBakai: "WhatsApp Bakai"
         }
     };
 
     function changeLang(lang) {
         document.getElementById('main-title').innerText = translations[lang].mainTitle;
         document.getElementById('sub-title').innerText = translations[lang].subTitle;
-        document.getElementById('about-title').innerText = translations[lang].aboutTitle;
-        document.getElementById('about-text').innerText = translations[lang].aboutText;
+        document.getElementById('price-title').innerText = translations[lang].priceTitle;
+        document.getElementById('th-type').innerText = translations[lang].thType;
+        document.getElementById('th-price').innerText = translations[lang].thPrice;
+        document.getElementById('t1').innerText = translations[lang].t1;
+        document.getElementById('t2').innerText = translations[lang].t2;
+        document.getElementById('t3').innerText = translations[lang].t3;
+        document.getElementById('t4').innerText = translations[lang].t4;
+        document.getElementById('h-parts').innerText = translations[lang].hParts;
+        document.getElementById('p-parts').innerText = translations[lang].pParts;
+        document.getElementById('h-time').innerText = translations[lang].hTime;
+        document.getElementById('p-time').innerText = translations[lang].pTime;
         document.getElementById('order-title').innerText = translations[lang].orderTitle;
         document.getElementById('wa-islam').innerText = translations[lang].waIslam;
         document.getElementById('wa-bakai').innerText = translations[lang].waBakai;
