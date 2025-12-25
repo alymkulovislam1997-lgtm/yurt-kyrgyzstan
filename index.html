@@ -1,45 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Юрты из Кызыл-Туу | Мастера Ислам и Бакай</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark: #1a1a1a; --white: #fdfbf7; --wa: #25d366; }
-        body { font-family: 'serif'; background: var(--white); margin: 0; color: var(--dark); text-align: center; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 50px 20px; border-bottom: 4px solid var(--gold); }
-        .lang-switch { background: #333; padding: 10px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; gap: 8px; }
-        .lang-switch button { background: none; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; padding: 6px 12px; border-radius: 4px; font-size: 14px; transition: 0.3s; }
-        .lang-switch button:hover { background: var(--gold); color: white; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        
-        /* Галерея */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; }
-        .gallery img { width: 100%; height: 250px; object-fit: cover; border: 2px solid var(--gold); border-radius: 8px; }
-
-        .detail-box { border-left: 5px solid var(--gold); margin: 15px 0; padding: 15px; text-align: left; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        
-        /* Отзывы */
-        .reviews { margin-top: 50px; padding: 30px 15px; background: #f4f1ea; border-radius: 15px; }
-        .review-card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 3px solid var(--gold); }
-        .review-card p { font-style: italic; margin-bottom: 10px; }
-        .author { font-weight: bold; color: var(--gold); font-size: 0.9em; }
-
-        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 8px; overflow: hidden; }
-        .price-table th, .price-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        body { font-family: 'Lora', serif; background: var(--white); margin: 0; color: var(--dark); text-align: center; line-height: 1.6; scroll-behavior: smooth; }
+        header { background: var(--dark); color: white; padding: 60px 20px; border-bottom: 5px solid var(--gold); }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px; }
+        .lang-switch { background: rgba(26, 26, 26, 0.95); padding: 12px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; gap: 10px; backdrop-filter: blur(5px); }
+        .lang-switch button { background: transparent; border: 1px solid var(--gold); color: var(--gold); cursor: pointer; padding: 8px 16px; border-radius: 4px; font-weight: bold; transition: 0.3s; }
+        .lang-switch button.active { background: var(--gold); color: white; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; border: 2px solid var(--gold); height: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26, 26, 26, 0.85); color: white; padding: 12px; font-size: 0.95em; }
+        .detail-box { border-left: 5px solid var(--gold); margin: 20px 0; padding: 20px; text-align: left; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .step-card { background: #fff; border: 1px solid #eee; padding: 15px; margin-bottom: 10px; border-radius: 8px; text-align: left; border-left: 4px solid var(--gold); }
+        .price-table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .price-table th, .price-table td { border: 1px solid #eee; padding: 15px; text-align: center; }
         .price-table th { background-color: var(--dark); color: white; }
-        
-        .btn-wa { background: var(--wa); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        [lang="kz"], [lang="en"] { display: none; }
+        .contacts-section { margin: 40px 0; }
+        .wa-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .btn-wa { background: var(--wa); color: white; padding: 18px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
+        .btn-tg { background: #0088cc; color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        .btn-inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        .map-container { margin: 40px 0; border: 3px solid var(--gold); border-radius: 8px; overflow: hidden; height: 400px; }
+        [lang] { display: none; }
     </style>
 </head>
-<body>
+<body data-lang="ru">
 
 <div class="lang-switch">
-    <button onclick="changeLang('ru')">Русский</button>
-    <button onclick="changeLang('kz')">Қазақша</button>
-    <button onclick="changeLang('en')">English</button>
+    <button onclick="changeLang('ru')" id="btn-ru">Русский</button>
+    <button onclick="changeLang('kz')" id="btn-kz">Қазақша</button>
+    <button onclick="changeLang('en')" id="btn-en">English</button>
 </div>
 
 <header>
@@ -50,79 +50,142 @@
 <div class="container">
     <h2 id="gallery-title">Наши работы</h2>
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1528660493478-ad83a0ee2188?w=600" alt="Юрта 1">
-        <img src="https://images.unsplash.com/photo-1563293753-436f734419b4?w=600" alt="Юрта 2">
-    </div>
-
-    <div id="content-ru" lang="ru">
-        <h2>О наших юртах:</h2>
-        <div class="detail-box"><b>Материал:</b> Ива высшего сорта и 100% натуральный войлок.</div>
-        <div class="detail-box"><b>Сроки:</b> Изготовление от 2-х недель.</div>
-        
-        <h2>Цены:</h2>
-        <table class="price-table">
-            <tr><th>Размер</th><th>Вместимость</th><th>Цена</th></tr>
-            <tr><td>4 каната</td><td>4-6 чел.</td><td>300,000 сом</td></tr>
-            <tr><td>6 канатов</td><td>8-10 чел.</td><td>400,000 сом</td></tr>
-            <tr><td>8 канатов</td><td>Большая</td><td>550,000 сом</td></tr>
-        </table>
-
-        <div class="reviews">
-            <h2>Отзывы клиентов:</h2>
-            <div class="review-card">
-                <p>"Заказали юрту для гостевого дома. Качество выше всяких похвал, очень теплая и красивая!"</p>
-                <span class="author">— Азамат, г. Бишкек</span>
+        <div class="gallery-item">
+            <img src="IMG-20251223-WA0138.jpg" alt="Интерьер юрты">
+            <div class="gallery-caption">
+                <span lang="ru">Богатое внутреннее убранство</span>
+                <span lang="kz">Киіз үйдің ішкі жасауы</span>
+                <span lang="en">Traditional Interior Design</span>
             </div>
-            <div class="review-card">
-                <p>"Лучшие мастера в Кызыл-Туу. Работа выполнена точно в срок. Спасибо Исламу и Бакаю!"</p>
-                <span class="author">— Нурлан, г. Алматы</span>
+        </div>
+        <div class="gallery-item">
+            <img src="IMG-20251223-WA0134.jpg" alt="Шырдак">
+            <div class="gallery-caption">
+                <span lang="ru">Натуральный войлок и узоры</span>
+                <span lang="kz">Таза киіз және ою-өрнектер</span>
+                <span lang="en">Handmade Felt & Patterns</span>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMG-20251223-WA0135.jpg" alt="Тундук">
+            <div class="gallery-caption">
+                <span lang="ru">Прочный каркас (Түндүк)</span>
+                <span lang="kz">Шебердің қолынан шыққан Түндік</span>
+                <span lang="en">Solid Handcrafted Frame</span>
             </div>
         </div>
     </div>
 
-    <div id="content-kz" lang="kz">
-        <h2>Біздің киіз үйлер туралы:</h2>
-        <p>Ислам мен Бакай шеберлерінің қолынан шыққан сапалы бұйымдар.</p>
-        <div class="reviews">
-            <h2>Клиенттердің пікірлері:</h2>
-            <div class="review-card">
-                <p>"Өте керемет киіз үй! Шеберлерге рахмет, жұмысы өте тиянақты."</p>
-                <span class="author">— Марат, Астана қ.</span>
+    <h2 id="masters-title">Мастера и Преемственность</h2>
+    <div id="masters-content">
+        <div lang="ru">
+            <div class="detail-box">
+                <p>Искусство создания юрт в нашей семье — это нить, идущая сквозь века. <b>Мастера Ислам и Бакай</b> являются продолжателями великой традиции села Кызыл-Туу. Согласно семейному преданию, наш прадед создавал юрты, которые служили десятилетиями. Каждая юрта для нас — это честь и наследие нашего рода.</p>
             </div>
+            <h3>Процесс создания</h3>
+            <div class="step-card"><b>1. Каркас:</b> Горная ива распаривается и гнется вручную для максимальной прочности.</div>
+            <div class="step-card"><b>2. Войлок:</b> 100% шерсть защищает от холода и жары.</div>
+        </div>
+        <div lang="kz">
+            <div class="detail-box">
+                <p><b>Ислам мен Бакай шеберлер</b> — атақты Қызыл-Ту ауылының ұлы дәстүрін жалғастырушылар. Біздің отбасымызда киіз үй жасау өнері атадан балаға мұра болып келеді. Біз үшін әрбір киіз үй — бұл біздің әулетіміздің абыройы.</p>
+            </div>
+            <h3>Жасалу барысы</h3>
+            <div class="step-card"><b>1. Кереге-уық:</b> Тау талынан қолмен иіліп жасалған берік каркас.</div>
+            <div class="step-card"><b>2. Киіз басу:</b> Табиғи қой жүнінен жасалған жылы жабынды.</div>
+        </div>
+        <div lang="en">
+            <div class="detail-box">
+                <p><b>Masters Islam and Bakai</b> are the successors of the great tradition of Kyzyl-Tuu village. In our family, yurt-making is a heritage passed through generations. We combine ancient secrets with modern quality for your comfort.</p>
+            </div>
+            <h3>Crafting Process</h3>
+            <div class="step-card"><b>1. Wooden Frame:</b> Hand-bent mountain willow for extreme durability.</div>
+            <div class="step-card"><b>2. Organic Felt:</b> 100% sheep wool for perfect climate control.</div>
         </div>
     </div>
 
-    <div id="content-en" lang="en">
-        <h2>About our Yurts:</h2>
-        <p>Premium quality handmade yurts from Kyzyl-Tuu masters.</p>
-        <div class="reviews">
-            <h2>Customer Reviews:</h2>
-            <div class="review-card">
-                <p>"Amazing craftsmanship. The yurt is beautiful and authentic. Highly recommend these masters!"</p>
-                <span class="author">— John, Tourist from USA</span>
-            </div>
+    <h2 id="price-title">Цены</h2>
+    <div id="price-content">
+        <div lang="ru">
+            <table class="price-table">
+                <tr><th>Размер</th><th>Вместимость</th><th>Цена</th></tr>
+                <tr><td>4 каната</td><td>4-6 чел.</td><td>300,000 сом</td></tr>
+                <tr><td>6 канатов</td><td>8-10 чел.</td><td>400,000 сом</td></tr>
+                <tr><td>8 канатов</td><td>12-15 чел.</td><td>550,000 сом</td></tr>
+            </table>
+        </div>
+        <div lang="kz">
+            <table class="price-table">
+                <tr><th>Өлшемі</th><th>Сыййымдылығы</th><th>Бағасы</th></tr>
+                <tr><td>4 қанатты</td><td>4-6 адам</td><td>300,000 сом</td></tr>
+                <tr><td>6 қанатты</td><td>8-10 адам</td><td>400,000 сом</td></tr>
+                <tr><td>8 қанатты</td><td>12-15 адам</td><td>550,000 сом</td></tr>
+            </table>
+        </div>
+        <div lang="en">
+            <table class="price-table">
+                <tr><th>Size</th><th>Capacity</th><th>Price</th></tr>
+                <tr><td>4-walls</td><td>4-6 persons</td><td>$3,500</td></tr>
+                <tr><td>6-walls</td><td>8-10 persons</td><td>$4,600</td></tr>
+                <tr><td>8-walls</td><td>12-15 persons</td><td>$6,400</td></tr>
+            </table>
         </div>
     </div>
 
-    <a href="https://wa.me/996501984201" class="btn-wa">Заказать через WhatsApp</a>
-    <p><b>Адрес:</b> с. Кызыл-Туу, ул. Турган 62, Кыргызстан</p>
+    <div class="contacts-section">
+        <h2 id="contact-title">Связаться с нами</h2>
+        <div class="wa-buttons">
+            <a href="https://wa.me/996501984201" id="wa-islam" class="btn-wa">WhatsApp: Ислам</a>
+            <a href="https://wa.me/996501047554" id="wa-bakai" class="btn-wa">WhatsApp: Бакай</a>
+        </div>
+        <div class="social-links">
+            <a href="https://t.me/yurtKyrgyzstan" target="_blank" class="btn-tg">Telegram</a>
+            <a href="http://instagram.com/islamalymkulovich" target="_blank" class="btn-inst">Instagram</a>
+        </div>
+    </div>
+
+    <h2 id="map-title">Где мы находимся?</h2>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11756.326233488732!2d76.5414578!3d42.1271183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3886f370868f086b%3A0x89658532f8166c30!2zS3l6eWwtVHV1LCDQmtGL0YDQs9GL0LfRgdGC0LDQvQ!5e0!3m2!1sru!2skg!4v1710000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <p><b id="addr-label">Адрес:</b><br>Кыргызстан, Иссык-Кульская обл., с. Кызыл-Туу, ул. Турган 62</p>
 </div>
 
 <script>
+    const translations = {
+        ru: { title: "ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", subtitle: "Мастера Ислам и Бакай | Традиции и Качество", gallery: "Наши работы", masters: "Мастера и Преемственность", price: "Цены", contact: "Связаться с нами", map: "Где мы находимся?", addr: "Адрес:", waIslam: "WhatsApp: Ислам", waBakai: "WhatsApp: Бакай", waMsg: "Здравствуйте! Хочу заказать юрту." },
+        kz: { title: "ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", subtitle: "Ислам мен Бакай шеберлері | Сапа мен Дәстүр", gallery: "Біздің жұмыстар", masters: "Шеберлер және Ұрпақ сабақтастығы", price: "Бағалары", contact: "Бізбен байланыс", map: "Біз қайдамыз?", addr: "Мекен-жайымыз:", waIslam: "WhatsApp: Ислам", waBakai: "WhatsApp: Бакай", waMsg: "Сәлеметсіз бе! Киіз үйге тапсырыс бергім келеді." },
+        en: { title: "KYZYL-TUU YURTS", subtitle: "Masters Islam & Bakai | Tradition & Quality", gallery: "Our Works", masters: "Masters & Heritage", price: "Pricing", contact: "Contact Us", map: "Our Location", addr: "Address:", waIslam: "WhatsApp: Islam", waBakai: "WhatsApp: Bakai", waMsg: "Hello! I am interested in ordering a yurt." }
+    };
+
     function changeLang(lang) {
         document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
         document.querySelectorAll('[lang="' + lang + '"]').forEach(el => el.style.display = 'block');
         
-        const titles = {
-            ru: { h1: "ЮРТЫ ИЗ КЫЗЫЛ-ТУУ", p: "Мастера Ислам и Бакай | Традиции и Качество", g: "Наши работы" },
-            kz: { h1: "ҚЫЗЫЛ-ТУ КИІЗ ҮЙЛЕРІ", p: "Ислам мен Бакай шеберлері", g: "Біздің жұмыстар" },
-            en: { h1: "YURTS FROM KYZYL-TUU", p: "Masters Islam & Bakai | Quality & Tradition", g: "Our Works" }
-        };
-        document.getElementById('title').innerText = titles[lang].h1;
-        document.getElementById('subtitle').innerText = titles[lang].p;
-        document.getElementById('gallery-title').innerText = titles[lang].g;
-    }
-</script>
+        const t = translations[lang];
+        document.getElementById('title').innerText = t.title;
+        document.getElementById('subtitle').innerText = t.subtitle;
+        document.getElementById('gallery-title').innerText = t.gallery;
+        document.getElementById('masters-title').innerText = t.masters;
+        document.getElementById('price-title').innerText = t.price;
+        document.getElementById('contact-title').innerText = t.contact;
+        document.getElementById('map-title').innerText = t.map;
+        document.getElementById('addr-label').innerText = t.addr;
+        
+        const islamBtn = document.getElementById('wa-islam');
+        const bakaiBtn = document.getElementById('wa-bakai');
+        islamBtn.innerText = t.waIslam;
+        bakaiBtn.innerText = t.waBakai;
+        
+        const msg = encodeURIComponent(t.waMsg);
+        islamBtn.href = `https://wa.me/996501984201?text=${msg}`;
+        bakaiBtn.href = `https://wa.me/996501047554?text=${msg}`;
 
+        document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('btn-' + lang).classList.add('active');
+    }
+
+    window.onload = () => changeLang('ru');
+</script>
 </body>
 </html>
